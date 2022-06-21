@@ -34,3 +34,11 @@ from
 where
 	surname = 'Durdil'
 	or surname = 'durdil';
+
+-- najde pocet symbolu podle marketu
+select count(s.full_name) as symbol_count, m.full_name
+from  symbols s, markets m 
+where 
+	s.market_id = m.market_id 
+group by  m.full_name 
+order by symbol_count 
